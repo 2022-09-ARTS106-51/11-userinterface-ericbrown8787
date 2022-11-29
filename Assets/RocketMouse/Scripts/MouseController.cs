@@ -32,6 +32,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class MouseController : MonoBehaviour 
 {
@@ -50,13 +51,14 @@ public class MouseController : MonoBehaviour
     private bool grounded;
     private bool dead = false;
     private uint coins = 0;
-    public Text coinsLabel;
+    public TextMeshProUGUI coinsLabel;
     public GameObject restartDialog;
 
     void Start () 
     {
         animator = GetComponent<Animator>();
         restartDialog.SetActive(false);
+        coinsLabel = GameObject.Find("PointsText").GetComponent<TextMeshProUGUI>();
     }
 
     void FixedUpdate () 
@@ -120,6 +122,7 @@ public class MouseController : MonoBehaviour
         coins++;
         Destroy(coinCollider.gameObject);
         AudioSource.PlayClipAtPoint(coinCollectSound, transform.position);
+        
         coinsLabel.text = coins.ToString();
     }
 

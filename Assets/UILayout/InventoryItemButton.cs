@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventoryItemButton : MonoBehaviour
 {
-    private Text buttonText;
+    private TextMeshProUGUI buttonText;
     private string[] itemTypes = { "Armor", "Weapon", "Spell" };
+    public int typeIndex;
 
     void Awake()
     {
-        index = Random.range(0,3);
-        buttonText = GetComponentInChildren<Text>();
-        buttonText.text = itemTypes[index];
+        typeIndex = Random.Range(0, 3);
+        buttonText = GetComponentInChildren<TextMeshProUGUI>();
+        buttonText.text = itemTypes[typeIndex];
     }
 
 }

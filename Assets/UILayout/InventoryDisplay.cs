@@ -9,7 +9,7 @@ public class InventoryDisplay : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             InventoryItemButton thisItem = transform.GetChild(i).GetComponent<InventoryItemButton>();
-            thisItem.gameObject.SetActive(thisItem.index == itemType);
+            thisItem.gameObject.SetActive(thisItem.typeIndex == itemType);
         }
     }
 
